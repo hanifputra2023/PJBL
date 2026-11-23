@@ -36,20 +36,3 @@ def tambah_data_langganan():
     print("Data langganan berhasil ditambahkan.")
 
 tambah_data_langganan()
-
-
-
-def mengedit_data_langganan():
-    id_cari = input("Masukkan ID Langganan yang ingin diedit: ")
-
-    for langganan in data_langganan:
-        if langganan["ID"] == id_cari:
-            langganan["Nama"] = input("Masukkan Nama baru: ")
-            langganan["Harga"] = input("Masukkan Harga baru: ")
-            langganan["Paket"] = input("Masukkan Paket baru: ")
-            langganan["Status"] = input("Masukkan Status baru: ")
-            langganan["Tanggal Berlangganan"] = input("Masukkan Tanggal Berlangganan baru: ")
-            print("Data langganan berhasil diedit.")
-            return
-
-print("Data tidak ada tersebut tidak ditemukan.")
