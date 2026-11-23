@@ -1,0 +1,49 @@
+#3. mengedit data langganan
+#4. menghapus data langganan
+#5. mencari data langganan
+
+import datetime
+
+def mengedit_data_langganan():
+    nama_cari = input("Masukkan Nama Langganan yang ingin diedit: ")
+
+    for langganan in data_langganan:
+        if langganan["Nama"].lower() == nama_cari.lower():
+            langganan["Nama"] = input("Masukkan Nama baru: ")
+            langganan["Harga"] = input_harga("Masukkan Harga baru: ")
+            langganan["Paket"] = input("Masukkan Paket baru: ")
+            langganan["Status"] = input("Masukkan Status baru: ")
+            langganan["Tanggal Berlangganan"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print("Data langganan berhasil diedit.")
+            return
+    print("Data dengan nama tersebut tidak ditemukan.")
+
+
+def menghapus_data_langganan():
+    nama_cari = input("Masukkan Nama Langganan yang ingin dihapus: ")
+
+    for langganan in data_langganan:
+        if langganan["Nama"].lower() == nama_cari.lower():
+            data_langganan.remove(langganan)
+            print("Data langganan berhasil dihapus.")
+            return
+    print("Data dengan nama tersebut tidak ditemukan.")
+
+
+def mencari_data_langganan_nama():
+    nama_cari = input("Masukkan Nama Langganan yang ingin dicari: ")
+    ditemukan = False
+
+    for langganan in data_langganan:
+        if langganan["Nama"].lower() == nama_cari.lower():
+            print("\nData ditemukan:")
+            print("ID                   :", langganan["ID"])
+            print("Nama                 :", langganan["Nama"])
+            print("Harga                :", langganan["Harga"])
+            print("Paket                :", langganan["Paket"])
+            print("Status               :", langganan["Status"])
+            print("Tanggal Berlangganan :", langganan["Tanggal Berlangganan"])
+            ditemukan = True
+
+    if not ditemukan:
+        print("Data dengan nama tersebut tidak ditemukan.")
